@@ -3,199 +3,281 @@
   <head>
     <meta charset="utf-8" />
     <title>Flutter - Presentación técnica</title>
-    <meta name="description" content="Presentación técnica que cubre los fundamentos, arquitectura, rendimiento y casos de uso reales de Flutter como framework multiplataforma.">
+    <meta
+      name="description"
+      content="Presentación técnica que cubre los fundamentos, arquitectura, rendimiento y casos de uso reales de Flutter como framework multiplataforma."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css"
+    />
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/reveal.js/dist/theme/dracula.css"
       id="theme"
     />
-
   </head>
-    
   <body>
     <div class="reveal">
       <div class="slides">
-       
+        <section data-auto-animate>
+          <h1>Introducción <br />a Flutter</h1>
+        </section>
+        <section data-auto-animate>
+          <h2>Índice</h2>
+          <ol>
+            <li>
+              Introducción: ¿Qué es flutter <br />
+              y qué problemas resuelve?
+            </li>
+            <li>Arquitectura general</li>
+            <li>Widgets y estructura</li>
+            <li>Lenguaje Dart</li>
+            <li>Rendimiento y herramientas</li>
+            <li>Ejemplo básico</li>
+            <li>Casos de uso reales</li>
+            <li>Cierre y futuro</li>
+          </ol>
+        </section>
         <section>
-          <h1>Introducción <br>a Flutter</h1>
-          </section>
-          <section>
-            <h2>Índice</h2>
-            <ol>
-              <li>Introducción: ¿Qué es flutter <br> y qué problemas resuelve?</li>
-              <li>Arquitectura general</li>
-              <li>Widgets y estructura</li>
-              <li>Lenguaje Dart</li>
-              <li>Rendimiento y herramientas</li>
-              <li>Ejemplo básico</li>
-              <li>Casos de uso reales</li>
-              <li>Cierre y futuro</li>
-            </ol>
-          </section>
-          <section>
-            <section><h2>Introducción</h2></section>
-            <section>
-              <h3>¿Qué es Flutter?</h3>
-              <p>
-                Flutter es un kit de desarrollo de software (SDK) de <strong>código abierto</strong> creado por <strong>Google</strong> para el desarrollo de interfaces de usuario <strong>multiplataforma</strong>.
-              </p>
-            </section>
-            <section>
-              <h3>¿Qué problema resuelve?</h3>
-              <p>
-                Flutter resuelve varios problemas comunes en el desarrollo de aplicaciones, como la necesidad de crear aplicaciones nativas para <strong>múltiples plataformas</strong> con un solo código base.
-              </p>
-            </section>
-          </section>
-          <section>
-            <section><h2>Arquitectura general</h2></section>
-            <section>
-              <p>
-                Flutter se organiza en tres capas principales: 
-                <strong>
-                  <ul>
-                    <li>El framework</li>
-                    <li>El engine</li>
-                    <li>El embedder</li>
-                  </ul>
-                </strong>
-              </p>
-            </section>
-            <section>
-              <h3>
-                El framework
-              </h3>
-              <!-- El framework está escrito en Dart e incluye la biblioteca de widgets, la gestión de estado, animaciones, y utilidades para construir la interfaz. -->
-              <p>
-                Es la parte donde los desarrolladores suelen trabajar directamente.
+          <section data-auto-animate><h2>Introducción</h2></section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger">Introducción</h2>
+            <h3>¿Qué es Flutter?</h3>
+            <p>
+              Flutter es un kit de desarrollo de software (SDK) de
+              <strong>código abierto</strong> creado por
+              <strong>Google</strong> para el desarrollo de interfaces de
+              usuario <strong>multiplataforma</strong>.
             </p>
-            </section>
-            <section>
-              <h3>
-                El engine
-              </h3>
-              <!--  Utiliza Skia como motor gráfico para pintar los píxeles en pantalla. -->
-              <p>
-                El engine esta
-                <strong>
-                  escrito en C++
-                </strong>
-                y se encarga del 
-                <strong>
-                renderizado,
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger">Introducción</h2>
+            <h3>¿Qué problema resuelve?</h3>
+            <p>
+              Flutter resuelve varios problemas comunes en el desarrollo de
+              aplicaciones, como la necesidad de crear aplicaciones nativas para
+              <strong>múltiples plataformas</strong> con un solo código base.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section data-auto-animate><h2>Arquitectura general</h2></section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger">Arquitectura general</h2>
+            <p>
+              Flutter se organiza en tres capas principales:
+              <strong>
+                <ul>
+                  <li>El framework</li>
+                  <li>El engine</li>
+                  <li>El embedder</li>
+                </ul>
               </strong>
-                la composición de la <strong>UI</strong>, el acceso al <strong>sistema de archivos </strong> y la <strong>ejecución del código</strong> compilado de Dart
-              </p>
-            </section>
-            <section>
-              <h3>
-                El embedder
-              </h3>
-              <p>
-                Es la capa específica de cada plataforma se encarga de integrar Flutter con el <strong>sistema operativo anfitrión:</strong>
-                <ul>
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger">Arquitectura general</h2>
+            <h3>El framework</h3>
+            <!-- El framework está escrito en Dart e incluye la biblioteca de widgets, la gestión de estado, animaciones, y utilidades para construir la interfaz. -->
+            <p>
+              Es la parte donde los desarrolladores suelen trabajar
+              directamente.
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger">Arquitectura general</h2>
+            <h3>El engine</h3>
+            <!--  Utiliza Skia como motor gráfico para pintar los píxeles en pantalla. -->
+            <p>
+              El engine esta
+              <strong> escrito en C++ </strong>
+              y se encarga del
+              <strong> renderizado, </strong>
+              la composición de la <strong>UI</strong>, el acceso al
+              <strong>sistema de archivos </strong> y la
+              <strong>ejecución del código</strong> compilado de Dart
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger">Arquitectura general</h2>
+            <h3>El embedder</h3>
+            <p>
+              Es la capa específica de cada plataforma se encarga de integrar
+              Flutter con el <strong>sistema operativo anfitrión:</strong>
+            </p>
+            <ul>
+              <li>gestiona la ventana de la aplicación</li>
+              <li>los eventos del sistema</li>
+              <li>la comunicación nativa</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-auto-animate>
+            <h2>Widgets y estructura</h2>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">
+              Widgets y estructura
+            </h2>
 
-                  <li>gestiona la ventana de la aplicación</li>
-                  <li>los eventos del sistema</li>
-                <li>la comunicación nativa</li>
-                </ul>
-              </p>
-            </section>
+            <!-- Pueden ser simples, como un texto o un botón, o complejos, como una pantalla completa -->
+            <p>
+              Los widgets son los bloques de
+              <strong>construcción</strong> fundamentales para crear interfaces
+              de usuario. Estos widgets se pueden
+              <strong>combinar, anidar y personalizar</strong> .
+              <!-- para formar interfaces ricas -->
+            </p>
+            <p>Existen dos tipos principales de widgets en Flutter:</p>
+            <ul>
+              <li>StatelessWidget</li>
+              <li>StatefulWidget</li>
+            </ul>
           </section>
-          <section>
-            <section>
-              <h2>Widgets y estructura</h2>
-            </section>
-            <section>
-              <!-- Pueden ser simples, como un texto o un botón, o complejos, como una pantalla completa -->
-              <p>
-                Los widgets son los bloques de <strong>construcción</strong> fundamentales para crear interfaces de usuario. Estos widgets se pueden <strong>combinar, anidar y personalizar</strong> .
-                <!-- para formar interfaces ricas -->
-              </p>
-              <p>
-                Existen dos tipos principales de widgets en Flutter:
-              </p>
-              <ul>
-                <li>
-                  StatelessWidget
-                </li>
-                <li>
-                  StatefulWidget
-                </li>
-              </ul>
-            
-            </section>
-            <section>
-              <h3>StatelessWidget</h3>
-              <p>
-                Un widget cuyo estado <strong>no cambia</strong> durante el ciclo de vida de la aplicación. Ideal para vistas que no requieren <strong>actualizaciones dinámicas.</strong>
-              </p>
-            </section>
-            <section>
-              <h3>StatefulWidget</h3>
-              <p>
-                Un widget cuyo estado <strong>puede cambiar</strong> durante el ciclo de vida. Utiliza un mecanismo de gestión del estado para actualizar la UI cuando <strong>los datos cambian.</strong>
-              </p>
-            </section>
-            <section>
-              <h3>Estructura del árbol de widgets</h3>
-              <p>
-                Determina cómo Flutter <strong>renderiza la interfaz</strong>. Los widgets se organizan jerárquicamente, y la UI se vuelve más <strong>eficiente</strong> a medida que se optimiza el proceso de "reconstrucción" de las vistas.
-              </p>
-            </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">
+              Widgets y estructura
+            </h2>
+            <h3>StatelessWidget</h3>
+            <p>
+              Un widget cuyo estado <strong>no cambia</strong> durante el ciclo
+              de vida de la aplicación. Ideal para vistas que no requieren
+              <strong>actualizaciones dinámicas.</strong>
+            </p>
           </section>
-          <section>
-            <section><h2>Lenguaje Dart</h2></section>
-            <section>
-              <p>
-                Dart es un lenguaje de programación desarrollado por <strong>Google</strong>, y es el lenguaje principal detrás de Flutter. Diseñado para ser <strong>rápido, eficiente y fácil de aprender.</strong>
-              </p>
-              </section>
-              <section>
-                <p>
-                  Dart soporta tanto compilación <strong>Just-In-Time (JIT)</strong> durante el desarrollo, lo que permite un ciclo de desarrollo rápido con <strong>Hot Reload</strong>, como también <strong>Ahead-Of-Time (AOT)</strong> para la compilación de código optimizado en producción.
-                </p>
-              </section>
-              <section>
-                <h3>
-                  Características claves
-                </h3>
-                <ul>
-                  <li><strong>Orientación a objetos:</strong> Dart sigue un modelo orientado a objetos con clases y objetos.</li>
-                  <li><strong>Null Safety:</strong> Dart tiene un sistema de seguridad contra valores nulos que ayuda a prevenir errores comunes y mejorar la confiabilidad del código.</li>
-                  <li><strong>Futuro y asincronía:</strong> Dart tiene un sistema integrado para manejar operaciones asíncronas con <code>async</code> y <code>await</code>.</li>
-                </ul>
-             </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">
+              Widgets y estructura
+            </h2>
+            <h3>StatefulWidget</h3>
+            <p>
+              Un widget cuyo estado <strong>puede cambiar</strong> durante el
+              ciclo de vida. Utiliza un mecanismo de gestión del estado para
+              actualizar la UI cuando <strong>los datos cambian.</strong>
+            </p>
           </section>
-          <section>
-            <section><h2>Rendimiento y herramientas</h2></section>
-            <section>
-              <h3>Rendimiento</h3>
-              <p>
-                Flutter destaca por su rendimiento gracias a su motor gráfico <strong>Skia</strong>, que permite renderizar interfaces rápidamente sobre el lienzo de la plataforma, <strong>superando</strong> las limitaciones de los <strong>componentes nativos</strong> del sistema operativo.
-              </p>
-            </section>
-            <section>
-              <h3>
-                Herramientas
-              </h3>
-              <ul>
-                <li><strong>Hot Reload:</strong> Permite ver los cambios en tiempo real sin perder el estado de la aplicación.</li>
-                <li><strong>Flutter DevTools:</strong> Un conjunto de herramientas de depuración que permite analizar el rendimiento.</li>
-                <li><strong>Flutter Inspector:</strong> Herramienta visual que facilita la exploración y depuración de la jerarquía de widgets.</li>
-                <li><strong>Profiling:</strong> Flutter ofrece herramientas integradas para el análisis de rendimiento, incluyendo el control sobre el uso de la CPU, la GPU.</li>
-              </ul>
-            </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">
+              Widgets y estructura
+            </h2>
+            <h3>Estructura del árbol de widgets</h3>
+            <p>
+              Determina cómo Flutter <strong>renderiza la interfaz</strong>. Los
+              widgets se organizan jerárquicamente, y la UI se vuelve más
+              <strong>eficiente</strong> a medida que se optimiza el proceso de
+              "reconstrucción" de las vistas.
+            </p>
           </section>
-          <section>
-            <section><h2>Ejemplo básico</h2></section>
-            <section>
-              <pre>
+        </section>
+        <section>
+          <section data-auto-animate><h2>Lenguaje Dart</h2></section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Lenguaje Dart</h2>
+            <p>
+              Dart es un lenguaje de programación desarrollado por
+              <strong>Google</strong>, y es el lenguaje principal detrás de
+              Flutter. Diseñado para ser
+              <strong>rápido, eficiente y fácil de aprender.</strong>
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Lenguaje Dart</h2>
+            <p>
+              Dart soporta tanto compilación
+              <strong>Just-In-Time (JIT)</strong> durante el desarrollo, lo que
+              permite un ciclo de desarrollo rápido con
+              <strong>Hot Reload</strong>, como también
+              <strong>Ahead-Of-Time (AOT)</strong> para la compilación de código
+              optimizado en producción.
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Lenguaje Dart</h2>
+            <h3>Características claves</h3>
+            <ul>
+              <li>
+                <strong>Orientación a objetos:</strong> Dart sigue un modelo
+                orientado a objetos con clases y objetos.
+              </li>
+              <li>
+                <strong>Null Safety:</strong> Dart tiene un sistema de seguridad
+                contra valores nulos que ayuda a prevenir errores comunes y
+                mejorar la confiabilidad del código.
+              </li>
+              <li>
+                <strong>Futuro y asincronía:</strong> Dart tiene un sistema
+                integrado para manejar operaciones asíncronas con
+                <code>async</code> y <code>await</code>.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-auto-animate>
+            <h2>Rendimiento y herramientas</h2>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">
+              Rendimiento y herramientas
+            </h2>
+            <h3>Rendimiento</h3>
+            <p>
+              Flutter destaca por su rendimiento gracias a su motor gráfico
+              <strong>Skia</strong>, que permite renderizar interfaces
+              rápidamente sobre el lienzo de la plataforma,
+              <strong>superando</strong> las limitaciones de los
+              <strong>componentes nativos</strong> del sistema operativo.
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">
+              Rendimiento y herramientas
+            </h2>
+            <h3>Herramientas</h3>
+            <p>
+              Flutter ofrece un conjunto de herramientas para facilitar el
+              desarrollo y la depuración de aplicaciones:
+            </p>
+            <ul>
+              <strong>
+                <li>Hot Reload</li>
+                <li>Flutter DevTools</li>
+                <li>Flutter Inspector</li>
+                <li>Profiling</li>
+              </strong>
+            </ul>
+            <!-- <ul>
+              <li>
+                <strong>Hot Reload:</strong> Permite ver los cambios en tiempo
+                real sin perder el estado de la aplicación.
+              </li>
+              <li>
+                <strong>Flutter DevTools:</strong> Un conjunto de herramientas
+                de depuración que permite analizar el rendimiento.
+              </li>
+              <li>
+                <strong>Flutter Inspector:</strong> Herramienta visual que
+                facilita la exploración y depuración de la jerarquía de widgets.
+              </li>
+              <li>
+                <strong>Profiling:</strong> Flutter ofrece herramientas
+                integradas para el análisis de rendimiento, incluyendo el
+                control sobre el uso de la CPU, la GPU.
+              </li>
+            </ul> -->
+          </section>
+        </section>
+        <section>
+          <section data-auto-animate><h2>Ejemplo básico</h2></section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Ejemplo básico</h2>
+            <pre>
                 <code data-trim data-noescape data-line-numbers> 
                   import 'package:flutter/material.dart';
 
@@ -204,9 +286,10 @@
                   }
                 </code>
               </pre>
-            </section>
-            <section>
-              <pre>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Ejemplo básico</h2>
+            <pre>
                 <code data-trim data-noescape data-line-numbers>
                   class MyApp extends StatelessWidget {
                     @override
@@ -221,9 +304,10 @@
                   }
                 </code>
               </pre>
-            </section>
-            <section>
-              <pre>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Ejemplo básico</h2>
+            <pre>
                 <code data-trim data-noescape data-line-numbers>
                   class Counter extends StatefulWidget {
                     @override
@@ -240,9 +324,10 @@
                     }
                 </code>
               </pre>
-            </section>
-            <section>
-              <pre>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Ejemplo básico</h2>
+            <pre>
                 <code data-trim data-noescape data-line-numbers>
                     @override
                     Widget build(BuildContext context) {
@@ -265,50 +350,132 @@
                   }
                 </code>
               </pre>
-            </section>
-            <section>
-              <h3>Ejemplo visual</h3>
-              <div style="text-align: center;">
-                <video autoplay loop muted style="max-width: 20%; height: auto; display: block; margin: 0 auto; border-radius: 12px;">
-                  <source src="example.webm" type="video/webm">
-                  Tu navegador no soporta el formato .webm.
-                </video>
-              </div>
-            </section>
           </section>
-          <section>
-            <section><h2>Casos de uso reales</h2></section>
-            <section>
-              <p>
-                Flutter se está utilizando cada vez más en aplicaciones de producción a <strong>gran escala.</strong>
-              </p>
-            </section>
-            <section><h3>¿Qué empresas lo usan?</h3></section>
-            <section><h3>Google</h3></section>
-            <section><h3>BMW</h3></section>
-            <section><h3>Realtor.com</h3></section>
-            <section><h3>Alibaba</h3></section>
-            <section><h3>eBay</h3></section>
-            <section><h3>Toyota</h3></section>
-          </section>
-          <section>
-            <section><h2>Cierre y futuro</h2></section>
-            <section>
-              <p>
-                Flutter se ha convertido en una tecnología clave para el desarrollode apps multiplataforma gracias a su <strong>alto rendimiento, productividad y arquitectura eficiente.</strong> Su ecosistema sigue creciendo con soporte para más plataformas y una comunidad activa. A futuro, se proyecta como una solución sólida también para <strong>interfaces embebidas, web avanzada y apps empresariales.</strong>
-              </p>
-            </section>
-          </section>
-          <section><h2>Muchas gracias por su atención.</h2></section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Ejemplo básico</h2>
+            <h3>Resultado final</h3>
+            <div style="text-align: center">
+              <video
+                autoplay
+                loop
+                muted
+                style="
+                  max-width: 20%;
+                  height: auto;
+                  display: block;
+                  margin: 0 auto;
+                  border-radius: 12px;
+                "
+              >
+                <source src="example.webm" type="video/webm" />
+                Tu navegador no soporta el formato .webm.
+              </video>
+            </div>
           </section>
         </section>
+        <section>
+          <section data-auto-animate><h2>Casos de uso reales</h2></section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <p>
+              Flutter se está utilizando cada vez más en aplicaciones de
+              producción a <strong>gran escala.</strong>
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <h3>¿Qué empresas lo usan?</h3>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <h3 style="font-size: xx-large; opacity: 0.7">
+              ¿Qué empresas lo usan?
+            </h3>
+            <h4>Google</h4>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <h3 style="font-size: xx-large; opacity: 0.7">
+              ¿Qué empresas lo usan?
+            </h3>
+            <h4>Google</h4>
+            <h4>BMW</h4>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <h3 style="font-size: xx-large; opacity: 0.7">
+              ¿Qué empresas lo usan?
+            </h3>
+            <h4>Google</h4>
+            <h4>BMW</h4>
+            <h4>Realtor.com</h4>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <h3 style="font-size: xx-large; opacity: 0.7">
+              ¿Qué empresas lo usan?
+            </h3>
+            <h4>Google</h4>
+            <h4>BMW</h4>
+            <h4>Realtor.com</h4>
+            <h4>Alibaba</h4>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <h3 style="font-size: xx-large; opacity: 0.7">
+              ¿Qué empresas lo usan?
+            </h3>
+            <h4>Google</h4>
+            <h4>BMW</h4>
+            <h4>Realtor.com</h4>
+            <h4>Alibaba</h4>
+            <h4>eBay</h4>
+          </section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Casos de uso reales</h2>
+            <h3 style="font-size: xx-large; opacity: 0.7">
+              ¿Qué empresas lo usan?
+            </h3>
+            <h4>Google</h4>
+            <h4>BMW</h4>
+            <h4>Realtor.com</h4>
+            <h4>Alibaba</h4>
+            <h4>eBay</h4>
+            <h4>Toyota</h4>
+          </section>
+        </section>
+        <section>
+          <section data-auto-animate><h2>Cierre y futuro</h2></section>
+          <section data-auto-animate>
+            <h2 style="font-size: larger; opacity: 0.7">Cierre y futuro</h2>
+            <p>
+              Flutter se ha convertido en una tecnología clave para el
+              desarrollode apps multiplataforma gracias a su
+              <strong
+                >alto rendimiento, productividad y arquitectura
+                eficiente.</strong
+              >
+              Su ecosistema sigue creciendo con soporte para más plataformas y
+              una comunidad activa. A futuro, se proyecta como una solución
+              sólida también para
+              <strong
+                >interfaces embebidas, web avanzada y apps
+                empresariales.</strong
+              >
+            </p>
+          </section>
+        </section>
+        <section data-auto-animate>
+          <h2>Muchas gracias por su atención.</h2>
+        </section>
       </div>
-      <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-      <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
-      <script>
-        Reveal.initialize({
-          plugins: [ RevealHighlight ]
-        });
-      </script>
+    </div>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        plugins: [RevealHighlight],
+      });
+    </script>
   </body>
 </html>
